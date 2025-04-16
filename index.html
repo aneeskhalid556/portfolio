@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Anees Portfolio</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+    }
+
+    header h1 {
+      color: #00ffff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+      }
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 40px;
+      background: linear-gradient(135deg, #025151 0%, #000 100%);
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 600px;
+      animation: fadeInLeft 1s ease forwards;
+    }
+
+    .hero-text h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #00ffff;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .hero-image {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 30px #00ffff;
+      animation: fadeInRight 1s ease forwards;
+      margin-top: 30px;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image:hover {
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 60px 40px;
+      background-color: #111;
+    }
+
+    section h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00ffff;
+      border-left: 5px solid #00ffff;
+      padding-left: 10px;
+    }
+
+    .projects, .skills-grid, .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project, .skill, .education {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project:hover, .skill:hover, .education:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    .project h4, .skill h4, .education h4 {
+      margin-bottom: 10px;
+      color: #00ffff;
+    }
+
+    .project p, .skill p, .education p {
+      font-size: 0.9rem;
+    }
+
+    .learning ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .learning li::before {
+      content: '✔';
+      color: #00ffff;
+      margin-right: 10px;
+    }
+
+    .learning li {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      background-color: #222;
+      border: 1px solid #00ffff;
+      color: white;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      background-color: #00ffff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #00cccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #000;
+      color: #888;
+      border-top: 1px solid #333;
+    }
+
+    a {
+      color: #00ffff;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-image {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 30px;
+  transition: transform 0.5s ease;
+  perspective: 1000px;
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00ffff, #025151);
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: #00ffff;
+  font-size: 2rem;
+  margin-right: 20px;
+  padding-left: 50px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+}
+
+
+
+  /* Your existing styles here... */
+
+
+  /* For mobile view */  
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Anees Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#learning">Learning</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="about">
+    <div class="hero-text">
+      <h2>Hello, I'm Anees Khalid</h2>
+      <p>A passionate tech enthusiast and developer dedicated to crafting modern, dynamic, and user-friendly websites. With a love for coding, learning, and bringing creative ideas to life, I strive to build exceptional web experiences that leave a lasting impact.</p>
+      <div class="social-icons">
+        <a href="https://facebook.com/yourusername" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+      </div>
+      
+    </div>
+    <div class="hero-image" id="heroImage">
+        <img id="heroImg" src="https://i.postimg.cc/B6m5mBCF/FB-IMG-1744793160008.jpg" alt="Your Photo" />
+
+      </div>
+      
+  </section>
+
+  <section id="skills">
+    <h3>My Skills</h3>
+    <div class="skills-grid">
+      <div class="skill">
+        <h4>HTML & CSS</h4>
+        <p>Building responsive and accessible layouts with semantic HTML and modern CSS.</p>
+      </div>
+      <div class="skill">
+        <h4>JavaScript</h4>
+        <p>Interactive features, changing web content, and using modern JavaScript features.</p>
+      </div>
+      <div class="skill">
+        <h4>Ethical Hacking</h4>
+        <p>Basic knowledge in ethical hacking means learning how to check and protect systems from hackers.</p>
+      </div>
+      <div class="skill">
+        <h4>C++</h4>
+        <p>Basic knowledge in C++ means understanding how to use this language to create programs and solve problems.</p>
+      </div>
+      <div class="skill">
+        <h4>Java</h4>
+        <p>Basic knowledge in Java means learning how to write simple programs and understand how apps work.</p>
+      </div>
+      <div class="skill">
+        <h4>Blogging</h4>
+        <p>Writing engaging content and sharing helpful information through blog posts.</p>
+      </div>
+      <div class="skill">
+        <h4>SEO</h4>
+        <p>Basic knowledge of improving website visibility in search engines using SEO techniques.</p>
+      </div>
+      <div class="skill">
+        <h4>Content Writing</h4>
+        <p>Creating clear and effective written content for websites and blogs.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="projects">
+    <h3>My Projects</h3>
+    <div class="projects">
+      <div class="project">
+        <h4>Project One</h4>
+        <p>Created a blog website "Starlink.com" about Starlink — explaining how it works, how to assemble the setup, and how to recharge it.</p>
+      </div>
+      <div class="project">
+        <h4>Project Two</h4>
+        <p>Created a blog website "proittips.com" that shared tips and guides on how to earn money online.</p>
+      </div>
+      <div class="project">
+        <h4>Project Three</h4>
+        <p>Currently managing two faceless TikTok channels focused on engaging content, with hands-on experience in basic video editing to create scroll-stopping videos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h3>Education</h3>
+    <div class="education-grid">
+      <div class="education">
+        <h4>Matriculation</h4>
+        <p>In 2021 From FCPS Wana</p>
+        <p>Basic education with a focus on science and computer subjects.</p>
+      </div>
+      <div class="education">
+        <h4>Intermediate – DAE in CIT (Computer Information Technology)</h4>
+        <p>In 2024 Passed from CTTC Gujranwala</p>
+        <p>Gaining hands-on knowledge in computer systems, IT, and software fundamentals.</p>
+      </div>
+      <div class="education">
+        <h4>Upcoming – BSSE (Bachelor of Science in Software Engineering)</h4>
+        <p>Planning to start in August at University of Sargodha Pk...</p>
+        <p>Excited to dive deeper into software development, programming, and modern tech skills.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="learning" class="learning">
+    <h3>What I'm Currently Learning</h3>
+    <ul>
+      <li>Advanced JavaScript and ES6+</li>
+      <li>App development</li>
+      <li>Node.js & Backend APIs</li>
+      <li>Cybersecurity Fundamentals</li>
+      <li>Advance Python</li>
+      <li>AI deep learning</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h3>Contact Me</h3>
+    <form class="contact-form" action="https://formsubmit.co/aneeskhalid556@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Anees Khalid. All rights reserved.
+  </footer>
+
+  <script>
+    const heroImage = document.getElementById('heroImage');
+    const heroImg = document.getElementById('heroImg');
+  
+    heroImage.addEventListener('mousemove', (e) => {
+      const bounds = heroImage.getBoundingClientRect();
+      const x = e.clientX - bounds.left - bounds.width / 2;
+      const y = e.clientY - bounds.top - bounds.height / 2;
+  
+      heroImg.style.transform = `rotateX(${-y * 0.05}deg) rotateY(${x * 0.05}deg) scale(1.05)`;
+    });
+  
+    heroImage.addEventListener('mouseleave', () => {
+      heroImg.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  </script>
+  
+  
+
+</body>
+</html>
